@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style-L2.css" />
+  <meta charset="utf-8">
+  <title>Assignment #2</title>
+  <script type="text/javascript">
+      function getcost() {
+
+      const TAX = 0.0825;
+      var username = document.getElementById("username").value;
+      var quantity = document.getElementById("quantity").value;
+      var cost = document.getElementById("cost").value;
+      var beforetax = quantity * cost;
+      var total = (beforetax * TAX) + beforetax;
+	  // Calculates the total cost with 8.25% tax
+      document.getElementById("totalcost").value = "$" + total.toFixed(2);
+	  // Displays the total cost after tax
+	  
+	  if (username=="" || quantity=="0") {
+		  // If..then statement alerts the user not to leave any fields empty
+		  alert("Do not leave the User Name or the Order Quantity field empty.") }
+		  else {
+      	  alert(username + " your total is " + " $" + total.toFixed(2) + " including 8.25% Sales Tax"); }
+	  	  // Alerts the user the name and total cost after tax
+    	   }
+  </script>
+  
+</head>
+
+<body>
+  <form action "" method="post" enctype="multipart/form-data" name="gettotal">
+    <p>Calculating Total Cost</p>
+    <p>
+      <input name="username" id="username" type="text" size="25" maxlength="20" /> &nbsp;- &nbsp;Enter User Name<br /> 
+      <input name="quantity" id="quantity" type="text" value="0" size="25" maxlength="3" />&nbsp;- &nbsp; Enter Order Quantity<br />
+      <input name="cost" id="cost" type="text" value="5.31" size="25" readonly="readonly" />&nbsp;- &nbsp; Cost<br />
+      <input name="totalcost" id="totalcost" type="text" size="25" readonly="readonly" />&nbsp;- &nbsp; Total Cost<br />
+    </p>
+    <p id="getcost" onclick="getcost()"><strong>[ Click on SUBMIT ]</strong></p>
+   <!-- This onclick getcost()event will start the calculation -->
+  </form>
+</body>
+
+</html>
